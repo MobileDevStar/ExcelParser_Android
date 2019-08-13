@@ -6,40 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-
-            <ListView
-                android:id="@+id/lv_data"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:dividerHeight = "1dp"
-                android:scrollbarAlwaysDrawHorizontalTrack="true"
-                android:footerDividersEnabled = "false"
-                android:headerDividersEnabled = "false"/>
-        </LinearLayout>
-
-    </HorizontalScrollView>
-
-    <EditText
-        android:id="@+id/textOut"
+    <RelativeLayout
+        android:id="@+id/v_topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -47,14 +15,112 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/label_strategy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="Strategy: "
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/but_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Search"/>
+
+        <EditText
+            android:id="@+id/et_strategy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toStartOf="@+id/but_search"
+            android:layout_toLeftOf="@+id/but_search"
+            android:layout_toEndOf="@+id/label_strategy"
+            android:layout_toRightOf="@+id/label_strategy"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
+
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_weight="1"
-        android:visibility="gone"
-        android:ems="10"
-        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/v_topbar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lv_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:dividerHeight="1dp"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false"
+                android:scrollbarAlwaysDrawHorizontalTrack="true" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/v_waiting"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="80"
+        android:background="@color/splash_background"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ProgressBar
+            android:id="@+id/pb_waiting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

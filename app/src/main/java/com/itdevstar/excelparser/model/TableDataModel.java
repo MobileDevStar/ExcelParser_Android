@@ -1,4 +1,4 @@
-package com.itdevstar.excelparser;
+package com.itdevstar.excelparser.model;
 
 public class TableDataModel {
     public String symbol;

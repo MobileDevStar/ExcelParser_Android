@@ -1,4 +1,4 @@
-package com.itdevstar.excelparser;
+package com.itdevstar.excelparser.adapter;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import com.itdevstar.excelparser.R;
+import com.itdevstar.excelparser.model.TableDataModel;
 
 import java.util.ArrayList;
 
